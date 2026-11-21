@@ -72,4 +72,49 @@ footer{text-align:center;padding:24px;background:#062947;color:#c9dceb;font-size
 <div class="contact-grid"><div class="contact-card"><h3>📞 Phone</h3><p>8132096802</p><a class="btn" href="tel:8132096802">Call Now</a></div><div class="contact-card"><h3>📍 Address</h3><p>Near Baikhora PHC</p><p class="small">Google Maps location link এখানে যোগ করা যাবে</p></div><div class="contact-card"><h3>🕒 Opening Hours</h3><p>Open: 7:00 AM · Close: 8:00 PM</p></div><div class="contact-card"><h3>💬 WhatsApp</h3><p>WhatsApp-এ টেস্ট সম্পর্কে জিজ্ঞাসা করুন</p><a class="btn" href="https://wa.me/918132096802">WhatsApp Us</a></div></div></div></section>
 </main>
 <footer>© 2026 JOYRAM DIAGNOSTIC CENTRE · All rights reserved</footer>
+  
+<section id="appointment" style="padding:40px 20px;background:#eef7fc">
+  <div class="container">
+    <h2 class="section-title">Online Appointment</h2>
+    <p class="section-sub">Book your diagnostic test appointment</p>
+
+    <form onsubmit="sendAppointment(event)" style="max-width:550px;margin:auto;display:grid;gap:14px">
+      <input id="patientName" placeholder="Patient Name" required style="padding:13px">
+      <input id="patientPhone" type="tel" placeholder="Mobile Number" required style="padding:13px">
+      <select id="testName" required style="padding:13px">
+        <option value="">Select Test</option>
+        <option>CBC</option>
+        <option>Blood Sugar</option>
+        <option>HbA1c</option>
+        <option>LFT</option>
+        <option>KFT</option>
+        <option>Thyroid Profile</option>
+        <option>Other Test</option>
+      </select>
+      <input id="appointmentDate" type="date" required style="padding:13px">
+      <button type="submit" class="btn">Book via WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<script>
+function sendAppointment(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("patientName").value;
+  const phone = document.getElementById("patientPhone").value;
+  const test = document.getElementById("testName").value;
+  const date = document.getElementById("appointmentDate").value;
+
+  const message =
+    "JOYRAM DIAGNOSTIC CENTRE - Appointment Request%0A" +
+    "Patient: " + encodeURIComponent(name) + "%0A" +
+    "Phone: " + encodeURIComponent(phone) + "%0A" +
+    "Test: " + encodeURIComponent(test) + "%0A" +
+    "Date: " + encodeURIComponent(date);
+
+  window.open("https://wa.me/918132096802?text=" + message, "_blank");
+}
+</script>
+
 </body></html>
